@@ -6,9 +6,9 @@ var app = new CommandApp();
 app.Configure(config =>
 {
 	config.Settings.ApplicationName = "PassReset";
-	config.AddCommand<ChangePasswordCommand>("change");
-	config.AddCommand<CreateTaskCommand>("create");
+	config.AddCommand<UpdatePasswordCommand>("password");
+	config.AddCommand<UpdateTasksCommand>("tasks");
 });
-app.SetDefaultCommand<ChangePasswordCommand>();
+//app.SetDefaultCommand<UpdatePasswordCommand>();
 
 return app.Run(args);
