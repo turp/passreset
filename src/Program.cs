@@ -8,6 +8,7 @@ app.Configure(config =>
 	config.Settings.ApplicationName = "PassReset";
 	config.AddCommand<UpdatePasswordCommand>("password");
 	config.AddCommand<UpdateTasksCommand>("tasks");
+	config.AddCommand<UpdateAllCommand>("all");
 });
 //app.SetDefaultCommand<UpdatePasswordCommand>();
 

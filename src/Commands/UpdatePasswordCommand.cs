@@ -7,11 +7,11 @@ using Spectre.Console;
 namespace PassReset.Commands;
 
 [Description("Update passwords")]
-public class UpdatePasswordCommand : Command<UserPass>
+public class UpdatePasswordCommand : Command<OldNewPasswordSetting>
 {
 	private readonly ActiveDirectoryProvider _ad = new(new PrincipalContext(ContextType.Domain));
 
-	public override int Execute(CommandContext context, UserPass settings)
+	public override int Execute(CommandContext context, OldNewPasswordSetting settings)
 	{
 		UpdatePassword(settings.Idsid, settings.Password, settings.NewPassword);
 		UpdatePassword($"ad_{settings.Idsid}", $"{settings.Password}{settings.Password}", $"{settings.NewPassword}{settings.NewPassword}");
