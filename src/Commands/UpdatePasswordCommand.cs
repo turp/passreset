@@ -1,8 +1,7 @@
-﻿using System.ComponentModel;
-using System.DirectoryServices.AccountManagement;
-using Microsoft.Win32.TaskScheduler;
-using Spectre.Cli;
+﻿using Spectre.Cli;
 using Spectre.Console;
+using System.ComponentModel;
+using System.DirectoryServices.AccountManagement;
 
 namespace PassReset.Commands;
 
@@ -16,8 +15,6 @@ public class UpdatePasswordCommand : Command<OldNewPasswordSetting>
 		UpdatePassword(settings.Idsid, settings.Password, settings.NewPassword);
 		UpdatePassword($"ad_{settings.Idsid}", $"{settings.Password}{settings.Password}", $"{settings.NewPassword}{settings.NewPassword}");
 		UpdatePassword($"mfg_{settings.Idsid}", $"{settings.Password}{settings.Password}", $"{settings.NewPassword}{settings.NewPassword}");
-
-		Console.ReadKey();
 
 		return 0;
 	}
